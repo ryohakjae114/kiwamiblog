@@ -8,6 +8,8 @@
         %ul.navbar-nav.w-100.ms-5
           %li.nav-item
             = link_to t('posts.index.title'), root_path, class: 'nav-link'
+          %li.nav-item.ms-2
+            = link_to t('users.posts.new.title'), new_post_path, class: 'nav-link'
           %li.flex-grow-1
           - if user_signed_in?
             %li.nav-item.dropdown
