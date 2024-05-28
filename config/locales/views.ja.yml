@@ -4,3 +4,9 @@ ja:
       default: "%Y/%m/%d %H:%M:%S"
   menus:
     profile: "ユーザ情報"
+  devise:
+    registrations:
+      new:
+        title: "サインアップ"
+      edit:
+        title: "認証情報編集"
