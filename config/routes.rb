@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   scope module: :users do
     resource :profile, only: %i[edit update]
-    resources :posts, only: %i[new create]
+    resources :posts, only: %i[new create edit update]
   end
   devise_for :users
   root 'posts#index'
