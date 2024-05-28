@@ -8,11 +8,11 @@ railsアプリの共通化できるファイルとフォルダの一覧になり
   
 * 使い方
   ```
-  ghq get git@github.com:ryohakjae114/template_rails.git
+  ghq get git@github.com:ryohakjae114/kiwamiblog.git
   ```
   * ディレクトリ名をアプリ名に変更
-  * プロジェクト内の`template_rails`をアプリ名のスネークケースに一括置換
-  * プロジェクト内の`TemplateRails`をアプリ名のキャメルケース(1文字目も大文字)に一括置換
+  * プロジェクト内の`kiwamiblog`をアプリ名のスネークケースに一括置換
+  * プロジェクト内の`Kiwamiblog`をアプリ名のキャメルケース(1文字目も大文字)に一括置換
   * database.yml.sampleからdatabase.ymlを複製
   ```
   bundle install
