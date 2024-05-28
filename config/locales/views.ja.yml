@@ -14,6 +14,9 @@ ja:
     profiles:
       edit:
         title: "プロフィール情報編集"
+    posts:
+      new:
+        title: "投稿作成"
   posts:
     index:
       title: "投稿一覧"
