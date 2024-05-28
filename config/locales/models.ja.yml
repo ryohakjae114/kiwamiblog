@@ -2,11 +2,15 @@ ja:
   activerecord:
     models:
       user: "ユーザ"
+      post: "投稿"
     attributes:
       user:
         name: "名前"
         introduction: "紹介文"
         external_blog_url: "外部URL"
+      post:
+        body: "本文"
+
   errors:
     user:
       name: "は英数字のみ使用できます"
