@@ -1,6 +1,9 @@
 = title t('.title')
 = simple_form_for(resource, url: user_registration_path, html: { method: :put }) do |f|
   = f.input :name
+  = f.input :current_password
   = f.input :password
   = f.input :password_confirmation
   = f.button :submit
+
+= button_to 'アカウント削除', user_registration_path, method: :delete, class: 'btn btn-danger float-end'

@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :rememberable, :validatable
 
-  validates :name, presence: true, length: { maximum: 20 }, format: { with: /\A[a-zA-Z0-9]+\z/, multiline: true, message: I18n.t('errors.user.name') }
+  validates :name, presence: true, length: { maximum: 20 }, format: { with: /\A[a-zA-Z0-9]+\z/, multiline: true, message: I18n.t('errors.user.name') },
+                   uniqueness: true
   validates :introduction, length: { maximum: 200 }
   validates :external_blog_url, length: { maximum: 2048 }
 
