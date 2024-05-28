@@ -2,3 +2,4 @@
 = simple_form_for @post do |f|
   = f.input :body
   = f.button :submit
+= button_to '削除', post_path(@post), method: :delete, class: 'btn btn-danger float-end'
