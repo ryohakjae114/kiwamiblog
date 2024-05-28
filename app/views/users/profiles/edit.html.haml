@@ -1,0 +1,5 @@
+= title t('.title')
+= simple_form_for @user, url: profile_path, html: { method: :put } do |f|
+  = f.input :introduction
+  = f.input :external_blog_url
+  = f.button :submit
