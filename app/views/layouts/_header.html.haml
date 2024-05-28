@@ -13,6 +13,8 @@
               %ul.dropdown-menu.dropdown-menu-end
                 %li
                   = link_to t('devise.registrations.edit.title'), edit_user_registration_path, class: 'dropdown-item'
+                %li
+                  = link_to t('users.profiles.edit.title'), edit_profile_path, class: 'dropdown-item'
           - else
             %li.nav-item
               = link_to t('devise.registrations.new.title'), new_user_registration_path, class: 'nav-link'
