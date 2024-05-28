@@ -10,3 +10,10 @@ ja:
         title: "サインアップ"
       edit:
         title: "認証情報編集"
+  users:
+    profiles:
+      edit:
+        title: "プロフィール情報編集"
+  posts:
+    index:
+      title: "投稿一覧"
