@@ -4,6 +4,7 @@
 - @posts.order(created_at: :desc).each do |post|
   .card.my-2
     .card-body
+      = link_to post.user.name, user_path(post.user)
       .fs-4= post.body
-      .d-inline-block.mt-2= l(post.created_at)
+      .mt-2= l(post.created_at)
 = paginate @posts, theme: 'bootstrap-5'
