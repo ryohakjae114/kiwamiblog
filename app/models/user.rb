@@ -6,6 +6,8 @@ class User < ApplicationRecord
   validates :introduction, length: { maximum: 200 }
   validates :external_blog_url, length: { maximum: 2048 }
 
+  has_many :posts, dependent: :destroy
+
   def email_required?
     false
   end
