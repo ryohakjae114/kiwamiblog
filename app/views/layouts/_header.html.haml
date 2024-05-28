@@ -5,7 +5,9 @@
       %button.navbar-toggler.ms-auto{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarNavDropdown", "data-bs-toggle" => "collapse", type: "button"}
         %span.navbar-toggler-icon
       #navbarNavDropdown.collapse.navbar-collapse
-        %ul.navbar-nav.w-100
+        %ul.navbar-nav.w-100.ms-5
+          %li.nav-item
+            = link_to t('posts.index.title'), root_path, class: 'nav-link'
           %li.flex-grow-1
           - if user_signed_in?
             %li.nav-item.dropdown

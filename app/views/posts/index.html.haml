@@ -1,7 +1,9 @@
 = title t('.title')
 
+= paginate @posts, theme: 'bootstrap-5'
 - @posts.order(created_at: :desc).each do |post|
   .card.my-2
     .card-body
       .fs-4= post.body
       .d-inline-block.mt-2= l(post.created_at)
+= paginate @posts, theme: 'bootstrap-5'
