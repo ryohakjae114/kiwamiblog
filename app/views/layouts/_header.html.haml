@@ -1,0 +1,13 @@
+%nav.navbar.navbar-expand-lg.bg-body-tertiary
+  .container-fluid.d-flex.justify-content-between
+    .d-flex.w-100
+      = link_to '極blog', root_path, class: 'navbar-brand'
+      %button.navbar-toggler{"aria-controls": "navbarNavAltMarkup",
+                            "aria-expanded": "false", "aria-label": "Toggle navigation",
+                            "data-bs-target": "#navbarNavAltMarkup", "data-bs-toggle": "collapse", type: "button"}
+        %span.navbar-toggler-icon
+      #navbarNavAltMarkup.collapse.navbar-collapse
+        %ul.navbar-nav.w-100.ms-5.d-flex
+          %li.flex-grow-1
+          %li.nav-item
+            = link_to t('devise.registrations.new.title'), new_user_registration_path, class: 'nav-link'
