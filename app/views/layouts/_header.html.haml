@@ -1,13 +1,18 @@
 %nav.navbar.navbar-expand-lg.bg-body-tertiary
-  .container-fluid.d-flex.justify-content-between
+  .container-fluid.d-flex
     .d-flex.w-100
       = link_to '極blog', root_path, class: 'navbar-brand'
-      %button.navbar-toggler{"aria-controls": "navbarNavAltMarkup",
-                            "aria-expanded": "false", "aria-label": "Toggle navigation",
-                            "data-bs-target": "#navbarNavAltMarkup", "data-bs-toggle": "collapse", type: "button"}
+      %button.navbar-toggler.ms-auto{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarNavDropdown", "data-bs-toggle" => "collapse", type: "button"}
         %span.navbar-toggler-icon
-      #navbarNavAltMarkup.collapse.navbar-collapse
-        %ul.navbar-nav.w-100.ms-5.d-flex
+      #navbarNavDropdown.collapse.navbar-collapse
+        %ul.navbar-nav.w-100
           %li.flex-grow-1
-          %li.nav-item
-            = link_to t('devise.registrations.new.title'), new_user_registration_path, class: 'nav-link'
+          - if user_signed_in?
+            %li.nav-item.dropdown
+              = link_to current_user.name, '#', class: 'nav-link dropdown-toggle', role: 'button', 'data-bs-toggle': 'dropdown', 'aria-expanded': 'false'
+              %ul.dropdown-menu.dropdown-menu-end
+                %li
+                  = link_to t('devise.registrations.edit.title'), edit_user_registration_path, class: 'dropdown-item'
+          - else
+            %li.nav-item
+              = link_to t('devise.registrations.new.title'), new_user_registration_path, class: 'nav-link'

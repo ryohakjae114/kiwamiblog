@@ -1,0 +1,6 @@
+= title t('.title')
+= simple_form_for(resource, url: user_registration_path, html: { method: :put }) do |f|
+  = f.input :name
+  = f.input :password
+  = f.input :password_confirmation
+  = f.button :submit
