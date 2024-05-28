@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Users::Posts', type: :system do
   let(:hakjae) { create(:user, name: 'hakjae', introduction: '', external_blog_url: '') }
+  let!(:post) { create(:post, user: hakjae, body: 'おはよう') }
 
   before do
     sign_in hakjae
@@ -18,7 +19,6 @@ RSpec.describe 'Users::Posts', type: :system do
   end
 
   it '投稿を編集できること' do
-    create(:post, user: hakjae, body: 'おはよう')
     visit root_path
     within('.card') do
       click_on('編集')
@@ -27,5 +27,13 @@ RSpec.describe 'Users::Posts', type: :system do
     click_on('更新する')
     expect(page).to have_content('更新しました')
     expect(page).to have_content('おやすみ')
+  end
+
+  it '投稿を削除できること' do
+    visit edit_post_path(post)
+    expect do
+      click_on('削除')
+    end.to change(hakjae.posts, :count).by(-1)
+    expect(page).to have_content('削除しました')
   end
 end
