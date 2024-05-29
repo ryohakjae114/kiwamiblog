@@ -1,8 +1,14 @@
 = title @user.name
-%h2.mt-5= User.human_attribute_name(:introduction)
-= @user.introduction
-%h2.mt-5= User.human_attribute_name(:external_blog_url)
-= link_to sanitize(@user.external_blog_url), @user.external_blog_url
+.container
+  - if current_user&.follow?(@user)
+    = button_to 'Unfollow', relationship_path(user_id: @user.id), method: :delete, class: 'btn btn-outline-dark'
+  - elsif current_user == @user
+  - else
+    = button_to 'Follow', relationships_path(user_id: @user.id), class: 'btn btn-dark'
+  %h2.mt-5= User.human_attribute_name(:introduction)
+  = @user.introduction
+  %h2.mt-5= User.human_attribute_name(:external_blog_url)
+  = link_to sanitize(@user.external_blog_url), @user.external_blog_url, class: 'd-block'
 
-- if current_user == @user
-  = link_to t('users.profiles.edit.title'), edit_profile_path, class: 'btn btn-outline-dark mt-5'
+  - if current_user == @user
+    = link_to t('users.profiles.edit.title'), edit_profile_path, class: 'btn btn-outline-dark mt-5'
