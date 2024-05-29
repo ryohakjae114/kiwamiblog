@@ -8,6 +8,24 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
 
+  has_many :active_relationships, class_name: 'Relationship', foreign_key: 'following_id', dependent: :destroy, inverse_of: :following
+  has_many :followings, through: :active_relationships, source: :followed
+
+  has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy, inverse_of: :followed
+  has_many :followers, through: :passive_relationships, source: :followed
+
+  def follow?(user)
+    active_relationships.exists?(followed_id: user.id)
+  end
+
+  def follow!(user)
+    active_relationships.create!(followed_id: user.id) unless self == user
+  end
+
+  def unfollow!(user)
+    active_relationships.find_by(followed_id: user.id).destroy!
+  end
+
   def email_required?
     false
   end
