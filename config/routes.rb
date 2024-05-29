@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resource :profile, only: %i[edit update]
     resources :posts, only: %i[new create edit update destroy]
     resources :relationships, only: %i[create destroy], param: :user_id
+    resources :following_posts, only: %i[index]
   end
   devise_for :users
   root 'posts#index'

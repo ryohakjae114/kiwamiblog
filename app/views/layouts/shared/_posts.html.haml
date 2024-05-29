@@ -1,0 +1,10 @@
+= paginate posts, theme: 'bootstrap-5'
+- posts.order(created_at: :desc).each do |post|
+  .card.my-2
+    .card-body
+      = link_to post.user.name, user_path(post.user)
+      .fs-4= post.body
+      .mt-2.d-inline-block= l(post.created_at)
+      - if current_user == post.user
+        = link_to '編集', edit_post_path(post), class: 'btn btn-outline-dark d-inline-block ms-1'
+= paginate posts, theme: 'bootstrap-5'

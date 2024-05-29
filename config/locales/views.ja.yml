@@ -22,6 +22,9 @@ ja:
         title: "投稿作成"
       edit:
         title: "投稿編集"
+    following_posts:
+      index:
+        title: "フォロー中のユーザの投稿一覧"
   posts:
     index:
       title: "投稿一覧"
